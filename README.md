@@ -1,4 +1,4 @@
-#  Lesson 2.
+#  Day 01 - Frontend boot camp
 
 
 ## Contents

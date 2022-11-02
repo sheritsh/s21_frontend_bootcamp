@@ -1,0 +1,16 @@
+{
+  "name": "simple-handlebars",
+  "version": "1.2.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.2"
+  }
+}

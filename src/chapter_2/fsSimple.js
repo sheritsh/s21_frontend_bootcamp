@@ -66,6 +66,6 @@ const readAndWriteAsyncAwait = async () => {
 
 /* Usage */
 
-// readAndWriteCallbackHell();
-// readAndWritePromises();
-// readAndWriteAsyncAwait();
+readAndWriteCallbackHell();
+readAndWritePromises();
+readAndWriteAsyncAwait();

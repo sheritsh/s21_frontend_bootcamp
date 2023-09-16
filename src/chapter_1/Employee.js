@@ -12,7 +12,7 @@
 -addSkill(newSkillName) - сотрудник может дополнить список своих скиллов.
 */
 
-export default class Employee {
+class Employee {
   /**
    * Creates a new Employee.
    * @constructor
@@ -57,3 +57,5 @@ export default class Employee {
     this.hardSkills.push(newSkillName);
   }
 }
+
+export default Employee;

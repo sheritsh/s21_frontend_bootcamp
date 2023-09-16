@@ -1,5 +1,5 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
 const fileToRead = path.resolve(__dirname, 'files/fsSimple/file1.txt');
 const fileToWrite = path.resolve(__dirname, 'files/fsSimple/file2.txt');

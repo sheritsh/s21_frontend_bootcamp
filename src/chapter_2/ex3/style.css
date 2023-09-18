@@ -1,0 +1,181 @@
+body {
+    background-color: #1de7dd;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+    height: 10vh;
+}
+
+.container_content {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main_title {
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+}
+
+.calculator {
+    position: relative;
+    width: max(25vw, 300px);
+    margin: auto;
+    height: 50vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 5px 5px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        'display display display clear'
+        'one two three plus'
+        'four five six minus'
+        'seven eight nine mul'
+        'div zero dot equal';
+}
+
+.calculator div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+input,
+textarea {
+    background-color: #fff;
+    border-radius: 5px;
+    border: none;
+    padding: 25px;
+    font-size: 18px;
+}
+
+.calculator div:not(.display):active {
+    transform: scale(0.85);
+}
+
+.display {
+    grid-area: display;
+}
+
+.display input {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.clear {
+    grid-area: clear;
+    background-color: #fe1918 !important;
+    color: #fff;
+}
+
+.one {
+    grid-area: one;
+}
+
+.two {
+    grid-area: two;
+}
+
+.three {
+    grid-area: three;
+}
+
+.four {
+    grid-area: four;
+}
+
+.five {
+    grid-area: five;
+}
+
+.six {
+    grid-area: six;
+}
+
+.seven {
+    grid-area: seven;
+}
+
+.eight {
+    grid-area: eight;
+}
+
+.nine {
+    grid-area: nine;
+}
+
+.zero {
+    grid-area: zero;
+}
+
+.div {
+    grid-area: div;
+}
+
+.dot {
+    grid-area: dot;
+}
+
+.equal {
+    grid-area: equal;
+}
+
+.mul {
+    grid-area: mul;
+}
+
+.minus {
+    grid-area: minus;
+}
+
+.plus {
+    grid-area: plus;
+}
+
+@media screen and (min-width: 780px) {
+    .calculator div:not(.display):hover {
+        opacity: 0.85;
+    }
+}
+
+.student_info {
+    display: flex;
+    align-items: center;
+    height: 90vh;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.student_info__content {
+    text-align: center;
+}
+
+.row {
+    text-align: center;
+}
+
+.rounded-circle {
+    border-radius: 50%;
+    object-fit: cover;
+    width: max(20vw, 200px);
+    height: max(20vw, 200px);
+}
+
+.col-md-4 {
+    text-align: center;
+}
+
+.info_title {
+    font-size: 48px;
+    margin-bottom: 10vh;
+    color: #fff;
+}

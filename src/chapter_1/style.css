@@ -136,3 +136,9 @@ textarea {
 .plus {
     grid-area: plus;
 }
+
+@media screen and (min-width: 780px) {
+    .calculator div:not(.display):hover {
+        opacity: 0.85;
+    }
+}

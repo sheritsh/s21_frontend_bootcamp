@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     picture: DataTypes.STRING,
     cost: DataTypes.NUMBER,
-    callQuantity: DataTypes.NUMBER,
+    callQuantity: DataTypes.INTEGER,
     description: DataTypes.STRING,
   }, {
     sequelize,

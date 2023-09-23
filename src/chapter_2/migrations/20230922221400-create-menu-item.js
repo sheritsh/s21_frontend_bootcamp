@@ -1,19 +1,19 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('MenuItems', 'OrderId', {
+    await queryInterface.createTable('MenuItems', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
+        unique: true,
       },
       OrderId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Orders',
           key: 'id',
-          as: 'orderId',
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',

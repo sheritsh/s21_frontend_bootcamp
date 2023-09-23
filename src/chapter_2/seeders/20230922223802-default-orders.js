@@ -9,7 +9,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        isActive: false,
+        isActive: true,
         items: [4, 5],
         userId: 2,
         createdAt: new Date(),

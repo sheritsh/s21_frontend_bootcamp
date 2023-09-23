@@ -1,4 +1,4 @@
-const { MenuItem, Order, User } = require('../models');
+const { MenuItem, Order, User } = require('../models/index.js');
 
 // Get all menu items
 exports.getMenu = async (req, res) => {

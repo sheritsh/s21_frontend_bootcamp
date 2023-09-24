@@ -1,17 +1,15 @@
 const { MenuItem, Order, User } = require('../models/index.js');
 
-// Get all menu items
 exports.getMenu = async (req, res) => {
   try {
     const menu = await MenuItem.findAll();
     res.json(menu);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Ошибка при получении меню' });
+    res.status(500).json({ error: 'Error fetching the menu' });
   }
 };
 
-// Create new order
 exports.createOrder = async (req, res) => {
   try {
     const { items, userId, isActive } = req.body;
@@ -19,11 +17,10 @@ exports.createOrder = async (req, res) => {
     res.status(201).json(order);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Ошибка при создании заказа' });
+    res.status(500).json({ error: 'Error creating an order' });
   }
 };
 
-// Change order
 exports.updateOrder = async (req, res) => {
   const { id } = req.params;
   const order = await Order.findByPk(id);
@@ -31,7 +28,7 @@ exports.updateOrder = async (req, res) => {
   try {
     const { isActive } = req.body;
     if (!order) {
-      return res.status(404).json({ error: 'Заказ не найден' });
+      return res.status(404).json({ error: 'Order not found' });
     }
 
     order.isActive = isActive;
@@ -40,46 +37,90 @@ exports.updateOrder = async (req, res) => {
     res.json(order);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Ошибка при обновлении заказа' });
+    res.status(500).json({ error: 'Error updating the order' });
   }
 
   return order;
 };
 
-// Close order
 exports.closeOrder = async (req, res) => {
   const { id } = req.params;
   const order = await Order.findByPk(id);
 
   try {
     if (!order) {
-      return res.status(404).json({ error: 'Заказ не найден' });
+      return res.status(404).json({ error: 'Order not found' });
     }
 
     order.isActive = false;
     await order.save();
 
-    res.json({ message: 'Заказ закрыт' });
+    res.json({ message: 'Order is closed' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Ошибка при закрытии заказа' });
+    res.status(500).json({ error: 'Error closing the order' });
   }
 
   return order;
 };
 
-// Get all current orders
+exports.getAllUsers = async (req, res) => {
+  try {
+    const waiters = await User.findAll();
+    res.json(waiters);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error fetching users' });
+  }
+};
+
 exports.getAllOrders = async (req, res) => {
   try {
     const orders = await Order.findAll({ where: { isActive: true } });
     res.json(orders);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Ошибка при получении заказов' });
+    res.status(500).json({ error: 'Error fetching orders' });
   }
 };
 
-// Create new User
+exports.getOrder = async (req, res) => {
+  const orderId = req.params.id;
+  const order = await Order.findByPk(orderId);
+
+  try {
+    if (!order) {
+      return res.status(404).json({ error: 'Order not found' });
+    }
+    res.json(order);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error fetching order' });
+  }
+
+  return order;
+};
+
+exports.getOrdersByUserId = async (req, res) => {
+  console.log(req.params);
+  const { id } = req.params;
+  const userId = id;
+
+  try {
+    const orders = await Order.findAll({
+      where: {
+        isActive: true,
+        userId,
+      },
+    });
+
+    res.json(orders);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error fetching orders' });
+  }
+};
+
 exports.createWaiter = async (req, res) => {
   try {
     const { name, role, orders } = req.body;
@@ -87,6 +128,6 @@ exports.createWaiter = async (req, res) => {
     res.status(201).json(waiter);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Ошибка при создании сотрудника' });
+    res.status(500).json({ error: 'Error creating an employee' });
   }
 };

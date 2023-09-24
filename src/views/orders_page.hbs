@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-{{> header title="Orders Page"}}
-<body>
+  {{> header title="Orders Page"}}
+  <body>
     {{> nav}}
-  <div class="container">
-    orders page
-  </div>
-  {{> scripts}}
-</body>
+    <div class="container">
+      <div id="orders">
+        <h1 class="display-3">Place an order</h1>
+        <form @submit.prevent="submitOrder">
+          <h3 class="display-6">Choose a waiter</h3>
+          <select class="form-select" size="5" aria-label="Default select example" v-model="selectedWaiter">
+            <option v-for="user in users" :key="user.id" :value="user.id">\{{ user.name }}</option>
+          </select>
+          <h3 class="display-6">Select items from the menu</h3>
+          <div class="mb-3">
+            <div class="form-check" v-for="(menuItem, index) in menuItems" :key="menuItem.id">
+              <input class="form-check-input" type="checkbox" :value="menuItem.id" :id="'defaultCheck' + (index + 1)" @change="toggleMenuItem(index)">
+              <label class="form-check-label" :for="'defaultCheck' + (index + 1)">
+                \{{ menuItem.title }}
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" id="liveToastBtn" :disabled="!isOrderValid">Order</button>
+          <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <strong class="me-auto">Successful</strong>
+                <small>now</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                New order created!
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    {{> scripts}}
+  </body>
 </html>

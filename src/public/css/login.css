@@ -17,12 +17,13 @@ body {
 }
 
 .login_form__main {
-    border: 10px solid #53a4c6;
     margin-bottom: 1rem;
-    border-radius: 5px;
 }
 
 .login_form__main-title {
+    border: 10px solid #53a4c6;
+    border-bottom: none;
+    border-radius: 5px;
     background-color: #f6f9f9;
     border-bottom: 2px solid #d7d8d8;
     height: max(4vh, 25px);
@@ -35,6 +36,9 @@ body {
 }
 
 .login_form__main-body {
+    border: 10px solid #53a4c6;
+    border-top: none;
+    border-radius: 5px;
     background-color: #ffffff;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -102,4 +106,18 @@ body {
 .error-message {
     padding-top: 0.5rem;
     font-size: 12px;
+}
+
+.signup_btn:disabled {
+    background: lightgray !important;
+}
+
+.signup_btn:disabled:hover {
+    scale: 1;
+}
+
+@media screen and (max-width: 1000px) {
+    .signup_btn {
+        width: 30%;
+    }
 }

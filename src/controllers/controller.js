@@ -103,7 +103,6 @@ exports.getOrder = async (req, res) => {
 };
 
 exports.getOrdersByUserId = async (req, res) => {
-  console.log(req.params);
   const { id } = req.params;
   const userId = id;
 
@@ -124,8 +123,16 @@ exports.getOrdersByUserId = async (req, res) => {
 
 exports.createWaiter = async (req, res) => {
   try {
-    const { name, role, orders } = req.body;
-    const waiter = await User.create({ name, role, orders });
+    const { username } = req.body;
+    let { password } = req.body;
+    const name = username;
+    const role = 'waiter';
+
+    password = await bcrypt.hash(password, 10);
+
+    const waiter = await User.create({
+      name, username, password, role,
+    });
     res.status(201).json(waiter);
   } catch (error) {
     console.error(error);
@@ -135,9 +142,6 @@ exports.createWaiter = async (req, res) => {
 
 exports.auth = async (req, res) => {
   const { username, password } = req.body;
-
-  console.log(req.body);
-  console.log(username, password);
 
   try {
     const user = await User.findOne({ where: { username } });
@@ -150,11 +154,20 @@ exports.auth = async (req, res) => {
 
     if (isPasswordValid) {
       req.session.user = { id: user.id, username: user.username };
-      return res.redirect('/');
+      return res.status(200).json({ message: 'Successful login attempt' });
     }
     return res.status(401).json({ message: 'Invalid password' });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ error: 'Internal Server Error' });
   }
+};
+
+exports.logout = async (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Error destroying session:', err);
+    }
+    res.redirect('/signin');
+  });
 };

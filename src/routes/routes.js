@@ -31,6 +31,8 @@ router.get('/signup', (req, res) => {
 
 router.post('/auth', controller.auth);
 
+router.get('/logout', controller.logout);
+
 /* API */
 
 router.get('/api/menu', controller.getMenu);
@@ -45,7 +47,7 @@ router.get('/api/waiters', controller.getAllUsers);
 
 router.post('/api/orders', controller.createOrder);
 
-router.post('/api/waiters', controller.createWaiter);
+router.post('/api/create_waiter', controller.createWaiter);
 
 router.put('/api/orders/:id', controller.updateOrder);
 

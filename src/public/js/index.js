@@ -114,10 +114,11 @@ const OrdersApp = {
         });
 
         if (response.status === 201) {
+          const newOrder = await response.json();
           this.selectedWaiter = null;
           this.selectedMenuItems = [];
           setTimeout(() => {
-            window.location.href = '/';
+            window.location.href = `/orders/${newOrder.id}`;
           }, 1500);
         }
       } catch (error) {

@@ -123,10 +123,9 @@ exports.getOrdersByUserId = async (req, res) => {
 
 exports.createWaiter = async (req, res) => {
   try {
-    const { username } = req.body;
+    const { username, role } = req.body;
     let { password } = req.body;
     const name = username;
-    const role = 'waiter';
 
     password = await bcrypt.hash(password, 10);
 
@@ -153,7 +152,7 @@ exports.auth = async (req, res) => {
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (isPasswordValid) {
-      req.session.user = { id: user.id, username: user.username };
+      req.session.user = { id: user.id, username: user.username, role: user.role };
       return res.status(200).json({ message: 'Successful login attempt' });
     }
     return res.status(401).json({ message: 'Invalid password' });

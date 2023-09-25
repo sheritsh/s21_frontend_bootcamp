@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const requireAuth = require('./middleware/authMiddleware');
-const bcrypt = require('bcrypt');
 const serverRoutes = require('./routes/routes.js');
 const db = require('./models/index.js');
 

@@ -1,0 +1,28 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login</title>
+        <link rel="stylesheet" href="/css/login.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="login_form">
+                <div class="login_form__main">
+                    <div class="login_form__main-title">Login</div>
+                    <form class="login_form__main-body" action="/auth" method="POST">
+                        <div class="input_field"><input type="text" name="username" placeholder="Username" /></div>
+                        <div class="input_field"><input type="password" name="password" placeholder="Password" /></div>
+                        <div class="error-message" style="color: red;"></div>
+                        <div class="login_info">Don't have an account yet? <a href="/signup">Sign up</a> in a few easy steps.</div>
+                        <div class="input_bottom">
+                            <button class="login_form__btn" type="submit">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{> scripts}}
+    </body>
+</html>

@@ -21,6 +21,16 @@ router.get('/menu', (req, res) => {
   res.render('menu_page');
 });
 
+router.get('/signin', (req, res) => {
+  res.render('login_page');
+});
+
+router.get('/signup', (req, res) => {
+  res.render('register_page');
+});
+
+router.post('/auth', controller.auth);
+
 /* API */
 
 router.get('/api/menu', controller.getMenu);

@@ -59,3 +59,9 @@ h1 {
 .card-header a {
     text-decoration: none !important;
 }
+
+.navbar-brand a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}

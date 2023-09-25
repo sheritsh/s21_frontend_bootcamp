@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const { MenuItem, Order, User } = require('../models/index.js');
 
 exports.getMenu = async (req, res) => {
@@ -129,5 +130,31 @@ exports.createWaiter = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error creating an employee' });
+  }
+};
+
+exports.auth = async (req, res) => {
+  const { username, password } = req.body;
+
+  console.log(req.body);
+  console.log(username, password);
+
+  try {
+    const user = await User.findOne({ where: { username } });
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+
+    if (isPasswordValid) {
+      req.session.user = { id: user.id, username: user.username };
+      return res.redirect('/');
+    }
+    return res.status(401).json({ message: 'Invalid password' });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Internal Server Error' });
   }
 };

@@ -11,6 +11,7 @@ const db = require('./models/index.js');
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
+const paths = ['/', '/menu', '/orders'];
 
 (async () => {
   await db.sequelize.sync();
@@ -28,7 +29,9 @@ app.use(
   }),
 );
 
-app.get('/', requireAuth);
+paths.forEach((sitePath) => {
+  app.get(sitePath, requireAuth);
+});
 
 app.use(express.urlencoded({ extended: true }));
 app.use(serverRoutes);

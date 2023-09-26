@@ -108,7 +108,7 @@ const OrderApp = {
 Vue.createApp(MenuApp).mount('#menu');
 Vue.createApp(OrderApp).mount('#order');
 
-// other JS code
+// PopUp success order
 const toastTrigger = document.getElementById('liveToastBtn');
 const toastLiveExample = document.getElementById('liveToast');
 

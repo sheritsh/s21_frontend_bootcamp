@@ -24,7 +24,6 @@ exports.getMainPage = async (req, res) => {
     } else if (req.session.user.role === 'admin') {
       const orders = await fetch(`${config.domain}/api/orders`);
       const ordersData = await orders.json();
-      console.log(ordersData);
 
       const formattedOrders = await Promise.all(ordersData.map(async (order) => {
         const userName = await getNameById(order.userId);

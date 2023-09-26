@@ -5,39 +5,40 @@
   <body>
     {{> nav}}
     <div class="container">
-          <div class="mb-3"><h3 class="display-6 waiter_info_title">
-            {{#if id}}
-              Your current Order:
-            {{else}}
-              Work harder! There are no orders yet.
-            {{/if}}
-            </h3>
-          </div>
+      <div class="mb-3">
+        <h3 class="display-6 waiter_info_title">
           {{#if id}}
-        <div class="order-cards">
-            <div class=" card">
-              <div class="card-header">
-                <a href="/orders/{{ id }}">Order #{{ id }}</a>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Order Contents:</h5>
-                <ul class="list-group">
-                  <li class="list-group-item">
-                   {{#each items}}
-                      {{#ifEquals this 1}}Lasagna{{/ifEquals}}
-                      {{#ifEquals this 2}}Salmon Sushi{{/ifEquals}}
-                      {{#ifEquals this 3}}Chicken Caesar Salad{{/ifEquals}}
-                      {{#ifEquals this 4}}Margherita Pizza{{/ifEquals}}
-                      {{#ifEquals this 5}}Carbonara Pasta{{/ifEquals}}
-                      {{#ifEquals this 6}}Mushroom Risotto{{/ifEquals}}
-                      {{#unless @last}}, {{/unless}}
-                    {{/each}}
-                  </li>
-                </ul>
-                <div>Total dishes: {{ items.length }}</div>
-              </div>
-            </div>
+            Your current Order:
+          {{else}}
+            Work harder! There are no orders yet.
+          {{/if}}
+        </h3>
       </div>
+      {{#if id}}
+        <div class="order-cards">
+          <div class="card">
+            <div class="card-header">
+              <a href="/orders/{{ id }}">Order #{{ id }}</a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Order Contents:</h5>
+              <ul class="list-group">
+                <li class="list-group-item">
+                  {{#each items}}
+                    {{#ifEquals this 1}}Lasagna{{/ifEquals}}
+                    {{#ifEquals this 2}}Salmon Sushi{{/ifEquals}}
+                    {{#ifEquals this 3}}Chicken Caesar Salad{{/ifEquals}}
+                    {{#ifEquals this 4}}Margherita Pizza{{/ifEquals}}
+                    {{#ifEquals this 5}}Carbonara Pasta{{/ifEquals}}
+                    {{#ifEquals this 6}}Mushroom Risotto{{/ifEquals}}
+                    {{#unless @last}}, {{/unless}}
+                  {{/each}}
+                </li>
+              </ul>
+              <div>Total dishes: {{ items.length }}</div>
+            </div>
+          </div>
+        </div>
       {{/if}}
     </div>
     {{> scripts}}

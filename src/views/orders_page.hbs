@@ -9,13 +9,13 @@
         <form id="orderForm" action="/api/orders" method="POST">
           <h3 class="display-6">Choose a waiter</h3>
           <select class="form-select" size="5" aria-label="Default select example" name="waiter" disabled>
-{{#each waiters}}
-  {{#ifEquals this  ../name}}
-    <option value="{{ @index }}" selected>{{ this }}</option>
-  {{else}}
-    <option value="{{ @index }}">{{ this }}</option>
-  {{/ifEquals}}
-{{/each}}
+            {{#each waiters}}
+              {{#ifEquals this ../name}}
+                <option value="{{ @index }}" selected>{{ this }}</option>
+              {{else}}
+                <option value="{{ @index }}">{{ this }}</option>
+              {{/ifEquals}}
+            {{/each}}
           </select>
           <h3 class="display-6">Select items from the menu</h3>
           <div class="mb-3">

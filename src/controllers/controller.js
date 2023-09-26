@@ -183,3 +183,16 @@ exports.getUserNameById = async (req, res) => {
     res.status(400).json({ error: 'Iternal error while fetching username' });
   }
 };
+
+exports.getNameById = async (id) => {
+  try {
+    const user = await User.findOne({ where: { id } });
+    if (!user) {
+      return null;
+    }
+    return user.name;
+  } catch (error) {
+    console.error(error);
+    throw new Error('Error fetching user data');
+  }
+};

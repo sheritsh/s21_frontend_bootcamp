@@ -1,8 +1,8 @@
-const { getOrdersByUserId } = require("./controller");
+const { getNameById } = require('./controller');
 const config = require('../config/config');
+const { mapItemsToNames } = require('../public/js/hbs-helpers');
 
 exports.getMainPage = async (req, res) => {
-  console.log('att:', config.domain);
   try {
     if (req.session.user.role === 'waiter') {
       const orders = await fetch(`${config.domain}/api/users/${req.session.user.id}`);
@@ -11,8 +11,6 @@ exports.getMainPage = async (req, res) => {
       const usernameData = await username.json();
 
       if (ordersData[0]) {
-        console.log(ordersData[0].id);
-        console.log(usernameData);
         res.render('waiter_main_page', {
           id: ordersData[0]?.id || 1,
           items: ordersData[0]?.items || 1,
@@ -24,7 +22,23 @@ exports.getMainPage = async (req, res) => {
         });
       }
     } else if (req.session.user.role === 'admin') {
-      res.render('main');
+      const orders = await fetch(`${config.domain}/api/orders`);
+      const ordersData = await orders.json();
+      console.log(ordersData);
+
+      const formattedOrders = await Promise.all(ordersData.map(async (order) => {
+        const userName = await getNameById(order.userId);
+        return {
+          id: order.id,
+          items: mapItemsToNames(order.items),
+          totalDishes: order.items.length,
+          userId: userName,
+        };
+      }));
+
+      res.render('admin_main_page', {
+        orders: formattedOrders,
+      });
     } else {
       res.redirect('/logout');
     }
@@ -43,8 +57,6 @@ exports.getOrdersPage = async (req, res) => {
     } else {
       res.redirect('/logout');
     }
-    // Ваш код для получения заказов официанта
-    // Здесь может быть SQL-запрос к базе данных
 
     res.render('main');
   } catch (error) {

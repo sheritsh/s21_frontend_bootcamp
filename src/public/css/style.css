@@ -65,3 +65,7 @@ h1 {
     color: inherit;
     cursor: pointer;
 }
+
+.waiter_info_title {
+    margin: 2rem 0 2rem;
+}

@@ -4,6 +4,7 @@ const hbs = require('hbs');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+const handlebarsHelpers = require('./public/js/hbs-helpers');
 const requireAuth = require('./middleware/authMiddleware');
 const serverRoutes = require('./routes/routes.js');
 const db = require('./models/index.js');
@@ -35,6 +36,7 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 
 // configure Handlebars
 hbs.registerPartials(`${__dirname}/partials`);
+hbs.registerHelper('ifEquals', handlebarsHelpers.ifEquals);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 

@@ -1,13 +1,12 @@
 const { Router } = require('express');
 const controller = require('../controllers/controller.js');
+const accessController = require('../controllers/accessController.js');
 
 const router = Router();
 
 /* SITE ROUTES */
 
-router.get('/', (req, res) => {
-  res.render('main');
-});
+router.get('/', accessController.getMainPage);
 
 router.get('/orders', (req, res) => {
   res.render('orders_page');
@@ -42,6 +41,8 @@ router.get('/api/orders', controller.getAllOrders);
 router.get('/api/orders/:id', controller.getOrder);
 
 router.get('/api/users/:id', controller.getOrdersByUserId);
+
+router.get('/api/username/:id', controller.getUserNameById);
 
 router.get('/api/waiters', controller.getAllUsers);
 

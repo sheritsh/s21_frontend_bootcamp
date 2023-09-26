@@ -170,3 +170,16 @@ exports.logout = async (req, res) => {
     res.redirect('/signin');
   });
 };
+
+exports.getUserNameById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await User.findOne({ where: { id } });
+    if (!user) {
+      res.status(404).json({ message: 'No user with this id' });
+    }
+    res.json(user.name);
+  } catch (error) {
+    res.status(400).json({ error: 'Iternal error while fetching username' });
+  }
+};

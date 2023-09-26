@@ -16,6 +16,7 @@
     "express-handlebars": "^7.1.2",
     "express-session": "^1.17.3",
     "handlebars": "^4.7.8",
+    "handlebars-helpers": "^0.10.0",
     "hbs": "^4.2.0",
     "nodemon": "^3.0.1",
     "pg": "^8.11.3",

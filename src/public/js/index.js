@@ -1,38 +1,5 @@
 /* eslint-disable no-undef */
 
-const MainApp = {
-  data() {
-    return {
-      employeeId: '',
-      orders: [],
-      isError: false,
-    };
-  },
-  methods: {
-    async fetchOrders() {
-      try {
-        const response = await fetch(`/api/users/${this.employeeId}`);
-        const data = await response.json();
-        this.orders = data;
-        this.employeeId = '';
-      } catch (error) {
-        console.error('Error fetching orders:', error);
-      }
-    },
-    handleFormSubmit() {
-      const inputValue = document.getElementById('input_user_id').value;
-      const employeeId = parseInt(inputValue, 10);
-      if (Number.isInteger(employeeId) && employeeId > 0 && /^\d+$/.test(inputValue)) {
-        this.employeeId = employeeId;
-        this.fetchOrders();
-        this.isError = false;
-      } else {
-        this.isError = true;
-      }
-    },
-  },
-};
-
 const MenuApp = {
   data() {
     return {
@@ -52,87 +19,6 @@ const MenuApp = {
   },
   created() {
     this.fetchMenuItems();
-  },
-};
-
-const OrdersApp = {
-  data() {
-    return {
-      menuItems: [],
-      users: [],
-      selectedWaiter: null,
-      selectedMenuItems: [],
-    };
-  },
-  methods: {
-    async fetchMenuItems() {
-      try {
-        const response = await fetch('/api/menu');
-        const data = await response.json();
-        this.menuItems = data;
-      } catch (error) {
-        console.error('Error fetching menu:', error);
-      }
-    },
-    async fetchUsers() {
-      try {
-        const response = await fetch('/api/waiters');
-        if (response.ok) {
-          const data = await response.json();
-          this.users = data;
-        } else {
-          console.error('Error fetching users');
-        }
-      } catch (error) {
-        console.error('Error fetching users:', error);
-      }
-    },
-    toggleMenuItem(index) {
-      const menuItemId = this.menuItems[index].id;
-      const isSelected = this.selectedMenuItems.includes(menuItemId);
-      if (isSelected) {
-        this.selectedMenuItems = this.selectedMenuItems.filter((id) => id !== menuItemId);
-      } else {
-        this.selectedMenuItems.push(menuItemId);
-      }
-    },
-    async submitOrder() {
-      try {
-        const orderData = {
-          userId: this.selectedWaiter,
-          items: this.selectedMenuItems,
-          isActive: true,
-        };
-
-        const response = await fetch('/api/orders', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(orderData),
-        });
-
-        if (response.status === 201) {
-          const newOrder = await response.json();
-          this.selectedWaiter = null;
-          this.selectedMenuItems = [];
-          setTimeout(() => {
-            window.location.href = `/orders/${newOrder.id}`;
-          }, 1500);
-        }
-      } catch (error) {
-        console.error('Ошибка при создании заказа:', error);
-      }
-    },
-  },
-  computed: {
-    isOrderValid() {
-      return this.selectedWaiter !== null && this.selectedMenuItems.length > 0;
-    },
-  },
-  mounted() {
-    this.fetchMenuItems();
-    this.fetchUsers();
   },
 };
 
@@ -219,9 +105,7 @@ const OrderApp = {
   },
 };
 
-Vue.createApp(MainApp).mount('#main');
 Vue.createApp(MenuApp).mount('#menu');
-Vue.createApp(OrdersApp).mount('#orders');
 Vue.createApp(OrderApp).mount('#order');
 
 // other JS code

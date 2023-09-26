@@ -1,4 +1,4 @@
-const { getNameById } = require('./controller');
+const { getNameById, getAllWaiters, getAllMenuItems } = require('./controller');
 const config = require('../config/config');
 const { mapItemsToNames } = require('../public/js/hbs-helpers');
 
@@ -49,16 +49,24 @@ exports.getMainPage = async (req, res) => {
 };
 
 exports.getOrdersPage = async (req, res) => {
+  const data = {
+    access: true,
+    name: '',
+    waiters: [],
+    menuItems: [],
+  };
+
   try {
     if (req.session.user.role === 'waiter') {
-      console.log('waiter role');
+      data.waiters = await getAllWaiters();
+      data.menuItems = await getAllMenuItems();
+      data.name = await getNameById(req.session.user.id);
     } else if (req.session.user.role === 'admin') {
-      console.log('admin role');
+      data.access = false;
     } else {
       res.redirect('/logout');
     }
-
-    res.render('main');
+    res.render('orders_page', data);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });

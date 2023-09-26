@@ -196,3 +196,25 @@ exports.getNameById = async (id) => {
     throw new Error('Error fetching user data');
   }
 };
+
+exports.getAllWaiters = async () => {
+  try {
+    const waiters = await User.findAll();
+    const response = JSON.stringify(waiters);
+    return JSON.parse(response).map((item) => item.name);
+  } catch (error) {
+    console.error(error);
+    throw new Error('Error while try to get waiters from bd');
+  }
+};
+
+exports.getAllMenuItems = async () => {
+  try {
+    const menu = await MenuItem.findAll();
+    const response = JSON.stringify(menu);
+    return JSON.parse(response).map((item) => item.title);
+  } catch (error) {
+    console.error(error);
+    throw new Error('Error while try to get menu from bd');
+  }
+};

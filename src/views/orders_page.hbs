@@ -4,23 +4,31 @@
   <body>
     {{> nav}}
     <div class="container">
-      <div id="orders">
+        {{#if access}}
         <h1 class="display-5">Place an order</h1>
-        <form @submit.prevent="submitOrder">
+        <form id="orderForm" action="/api/orders" method="POST">
           <h3 class="display-6">Choose a waiter</h3>
-          <select class="form-select" size="5" aria-label="Default select example" v-model="selectedWaiter">
-            <option v-for="user in users" :key="user.id" :value="user.id">\{{ user.name }}</option>
+          <select class="form-select" size="5" aria-label="Default select example" name="waiter" disabled>
+{{#each waiters}}
+  {{#ifEquals this  ../name}}
+    <option value="{{ @index }}" selected>{{ this }}</option>
+  {{else}}
+    <option value="{{ @index }}">{{ this }}</option>
+  {{/ifEquals}}
+{{/each}}
           </select>
           <h3 class="display-6">Select items from the menu</h3>
           <div class="mb-3">
-            <div class="form-check" v-for="(menuItem, index) in menuItems" :key="menuItem.id">
-              <input class="form-check-input" type="checkbox" :value="menuItem.id" :id="'defaultCheck' + (index + 1)" @change="toggleMenuItem(index)">
-              <label class="form-check-label" :for="'defaultCheck' + (index + 1)">
-                \{{ menuItem.title }}
+            {{#each menuItems}}
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="menuItems" value="{{ this }}" id="defaultCheck{{ @index }}">
+              <label class="form-check-label" for="defaultCheck{{ @index }}">
+                {{ this }}
               </label>
             </div>
+            {{/each}}
           </div>
-          <button type="submit" class="btn btn-primary" id="liveToastBtn" :disabled="!isOrderValid">Order</button>
+          <button type="submit" class="btn btn-primary" id="liveToastBtn" disabled>Order</button>
           <div class="toast-container position-fixed bottom-0 end-0 p-3">
             <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
               <div class="toast-header">
@@ -34,8 +42,11 @@
             </div>
           </div>
         </form>
-      </div>
+        {{else}}
+        <h3 class="display-6 waiter_info_title">This is an admin account. The functionality for creating orders is only accessible to waiters.</h3>
+        {{/if}}
     </div>
+    <script src="/js/orders.js"></script>
     {{> scripts}}
   </body>
 </html>

@@ -8,9 +8,7 @@ const router = Router();
 
 router.get('/', accessController.getMainPage);
 
-router.get('/orders', (req, res) => {
-  res.render('orders_page');
-});
+router.get('/orders', accessController.getOrdersPage);
 
 router.get('/orders/:id', (req, res) => {
   res.render('order_page');

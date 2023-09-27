@@ -1,0 +1,30 @@
+html {
+  overflow: hidden;
+}
+
+.main-window {
+  font-family: "Mooli", sans-serif;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #3498db;
+}
+
+.win-stat {
+  width: 60vw;
+  text-align: center;
+  background-color: rgba(173, 216, 230, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 25vh;
+  align-self: flex-start;
+}
+h2 {
+  margin-bottom: 10px;
+}
+p {
+  margin-bottom: 5px;
+}
+

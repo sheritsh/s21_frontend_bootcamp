@@ -88,6 +88,7 @@ th,
 td {
   padding: 10px;
   text-align: center;
+  color: rgba(0, 0, 0, 0.09);
 }
 
 .gamestats {
@@ -151,6 +152,75 @@ td {
   aspect-ratio: 1 / 1;
 }
 
+.ann_img {
+  width: 50px;
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  margin: 0 auto;
+}
+
 .announcement {
   margin: 3rem;
 }
+
+.active-ship {
+  background-color: yellow;
+  padding: 3px;
+}
+
+.hovered_cell {
+  background-color: yellow;
+  opacity: 0.5;
+}
+
+.hovered_cell:active {
+  background-color: #ddeedd;
+  opacity: 1;
+}
+
+.ship {
+  background-color: #ddeedd;
+}
+
+.hovered_cell.ship {
+  background-color: #ddeedd;
+  opacity: 1;
+}
+
+.pointer_cursor {
+  cursor: pointer;
+}
+
+.pointer_cursor:hover:not(.active-ship) {
+  border-bottom: 1px solid #1f76be;
+}
+
+/* SHAKING ANIMATION START*/
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+
+.error {
+  animation: shake 1s ease-in-out 1;
+  box-shadow: 0 0 10px red;
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+/* SHAKING ANIMATION END */

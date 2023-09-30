@@ -4,6 +4,7 @@ import { gamePhases, PlayerShipsStock, removeAllEventListeners, ShipsMap, shipsN
 /* Values */
 
 let gamePhase;
+let isGame;
 
 /* Placement phase values */
 
@@ -51,7 +52,7 @@ const PlacementPhaseMode = () => {
   emptyShips = 0;
   isPlaceShipProcess = false;
   gamePhase = gamePhases.Prepare;
-  annonceImg.style.backgroundImage = 'url(/src/seabattle/assets/svg/prepare.svg)';
+  annonceImg.style.backgroundImage = 'url(/assets/svg/prepare.svg)';
   annonceContent.innerHTML = 'Placement Phase';
   AIField = generateRandomField();
   applyPlacementPhaseModeStyles();
@@ -124,8 +125,6 @@ const setShipProcess = (cell) => {
 
       switchCurrentShip();
       if (emptyShips === 4) {
-        // next Phase
-        alert('new phase');
         BattlePhaseMode();
       }
     }
@@ -284,11 +283,12 @@ const switchCurrentShip = () => {
 
 const BattlePhaseMode = () => {
   // init values
+  isGame = true;
   hpAI = 20;
   hpPlayer = 20;
   AIField = generateRandomField();
 
-  annonceImg.style.backgroundImage = 'url(/src/seabattle/assets/svg/swords.svg)';
+  annonceImg.style.backgroundImage = 'url(/assets/svg/swords.svg)';
   annonceContent.innerHTML = 'Fight';
   removePlacementPhaseEffects();
   applyBattlePhaseEffects();
@@ -336,11 +336,32 @@ const handlePlayerTurns = (cell) => {
   removeAllEventListeners(cell);
   if (isGameOver()) {
     if (!hpAI) {
-      annonceImg.style.backgroundImage = 'url(/src/seabattle/assets/svg/win.svg)';
+      annonceImg.style.backgroundImage = 'url(/assets/svg/win.svg)';
       annonceContent.innerHTML = 'Player win';
+      // POST win true
+      fetch('/api/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user_id: localStorage.getItem('idUsername'),
+          isWin: true,
+        }),
+      });
     } else {
-      annonceImg.style.backgroundImage = 'url(/src/seabattle/assets/svg/loose.svg)';
+      annonceImg.style.backgroundImage = 'url(/assets/svg/loose.svg)';
       annonceContent.innerHTML = 'AI WIN';
+      fetch('/api/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user_id: localStorage.getItem('idUsername'),
+          isWin: false,
+        }),
+      });
     }
   }
 };
@@ -381,6 +402,21 @@ const handleAITurn = (turn) => {
 const isGameOver = () => {
   return (hpPlayer === 0 || hpAI === 0);
 };
+
+window.addEventListener('beforeunload', (event) => {
+  if (isGame) {
+    fetch('/api/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        user_id: localStorage.getItem('idUsername'),
+        isWin: false,
+      }),
+    });
+  }
+});
 
 // DEBUG
 // const td = playerTable.querySelectorAll('td');

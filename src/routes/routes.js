@@ -7,6 +7,10 @@ const myStatsController = require("../controllers/myStats.js");
 
 const router = Router();
 
+router.get("/game", (req, res) => {
+  res.render('game');
+});
+
 // GET /register — клиент регистрируется.
 router.get("/signUp", registerController.singUp);
 router.post("/api/signUp", registerController.register);

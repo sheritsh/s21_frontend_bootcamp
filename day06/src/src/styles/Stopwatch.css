@@ -1,0 +1,22 @@
+.stopwatch-container {
+  border: 1px solid #ccc;
+
+  margin-bottom: 20px;
+
+  font-size: 36px;
+}
+
+.stopwatch-time {
+  font-size: 56px;
+  font-weight: bold;
+}
+
+.stopwatch-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #dedae2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

@@ -1,0 +1,37 @@
+.head-list {
+  font-size: 36px;
+  text-align: center;
+}
+
+.btn-add,
+.btn-reset {
+  width: 150px;
+  height: 50px;
+  border-radius: 20px;
+  font-size: 26px;
+  border: none;
+}
+
+.btn-add,
+.btn-reset {
+  cursor: pointer;
+}
+
+.btn-add:hover,
+.btn-reset:hover {
+  background-color: rgb(220, 220, 220);
+}
+
+.btn-watch {
+  width: 50vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.item-li {
+  list-style-type: none;
+}
+
+.item-ul {
+  padding: 0;
+}

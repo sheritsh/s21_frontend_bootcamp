@@ -1,0 +1,134 @@
+body {
+    background-color: #4aa7d1;
+    font-family: Arial, sans-serif;
+}
+
+.login_form {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90vh;
+}
+
+.login_form {
+    width: 35vw;
+    min-width: 300px;
+}
+
+.login_form__main {
+    margin-bottom: 1rem;
+}
+
+.login_form__main-title {
+    border: 10px solid #53a4c6;
+    border-bottom: none;
+    border-radius: 5px;
+    background-color: #f6f9f9;
+    border-bottom: 2px solid #d7d8d8;
+    height: max(4vh, 25px);
+    text-align: center;
+    line-height: max(4vh, 25px);
+    font-weight: 700;
+    color: #555555;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.login_form__main-body {
+    border: 10px solid #53a4c6;
+    border-top: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: center;
+    margin-block-end: 0;
+}
+
+.input_field input {
+    border: 5px solid #f0f4f7;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    width: 80%;
+    margin-top: 5%;
+    padding: 10px;
+}
+
+.input_bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 20%;
+    font-size: 12px;
+    width: 90%;
+    margin: 0 auto 0;
+}
+
+.login_form__post {
+    text-align: center;
+}
+
+.login_form__post,
+.login_form__post a {
+    font-size: 12px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.input_checkbox {
+    color: #8a7e7f;
+    display: flex;
+    align-items: center;
+}
+
+.login_form__btn {
+    background: linear-gradient(180deg, rgba(235, 243, 247, 1) 18%, rgba(211, 229, 238, 1) 100%);
+    border: 1px solid #c9d2d6;
+    padding: 5px;
+    border-radius: 25px;
+    width: 20%;
+    color: #677881;
+    font-weight: 600;
+    margin-right: 1rem;
+}
+
+.login_form__btn:active {
+    scale: 0.9;
+}
+
+.login_info {
+    padding-top: 1rem;
+    font-size: 12px;
+}
+
+.error-message {
+    padding-top: 0.5rem;
+    font-size: 12px;
+}
+
+.signup_btn:disabled {
+    background: lightgray !important;
+}
+
+.signup_btn:disabled:hover {
+    scale: 1;
+}
+
+.input_role {
+    margin: 0 auto;
+    border: 5px solid #f0f4f7;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    width: 30%;
+    margin-top: 5%;
+    padding: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+    .signup_btn {
+        width: 30%;
+    }
+}

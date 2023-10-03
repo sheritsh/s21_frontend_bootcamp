@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{> header title="Admin Main Page"}}
+  <body>
+    {{> nav}}
+    <div class="container">
+      <div id="main">
+        <h3 class="display-6 waiter_info_title">Current Orders</h3>
+        <div class="order-cards">
+          {{#if orders.length}}
+            <div class="row row-cols-3">
+              {{#each orders}}
+                <div class="col card">
+                  <div class="card-header">
+                    <a href="/orders/{{ id }}">Order #{{ id }}</a>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Order Contents:</h5>
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        {{ items }}
+                      </li>
+                    </ul>
+                    <div>Total dishes: {{ totalDishes }}</div>
+                    <div><strong>Waiter</strong>: {{ userId }}</div>
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+          {{else}}
+            <p>No orders available.</p>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    {{> scripts}}
+  </body>
+</html>

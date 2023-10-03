@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sea Battle</title>
+    <link rel="stylesheet" href="assets/styles/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="seabattle_game">
+        <div class="seabattle_sidebar">
+          <nav class="seabattle_menu">
+            <ul class="menu_list">
+              <li class="menu_item">
+                <div class="item_img" id="img_1"></div>
+                <div class="item_name">Game</div>
+              </li>
+              <li class="menu_item">
+                <div class="item_img" id="img_2"></div>
+                <div class="item_name">Stats</div>
+              </li>
+              <li class="menu_item">
+                <div class="item_img" id="img_3"></div>
+                <div class="item_name">Best players</div>
+              </li>
+              <li class="menu_item">
+                <div class="item_img" id="img_4"></div>
+                <div class="item_name">Logout</div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="seabettle_gamezone">
+          <div class="left_player">
+            <div class="gamefield first_player">
+              <table id="player_table" class="gametable" border="1">
+                <tbody>
+                  <tr>
+                    <td id="l1"></td>
+                    <td id="l2"></td>
+                    <td id="l3"></td>
+                    <td id="l4"></td>
+                    <td id="l5"></td>
+                    <td id="l6"></td>
+                    <td id="l7"></td>
+                    <td id="l8"></td>
+                    <td id="l9"></td>
+                    <td id="l10"></td>
+                  </tr>
+                  <tr>
+                    <td id="l11"></td>
+                    <td id="l12"></td>
+                    <td id="l13"></td>
+                    <td id="l14"></td>
+                    <td id="l15"></td>
+                    <td id="l16"></td>
+                    <td id="l17"></td>
+                    <td id="l18"></td>
+                    <td id="l19"></td>
+                    <td id="l20"></td>
+                  </tr>
+                  <tr>
+                    <td id="l21"></td>
+                    <td id="l22"></td>
+                    <td id="l23"></td>
+                    <td id="l24"></td>
+                    <td id="l25"></td>
+                    <td id="l26"></td>
+                    <td id="l27"></td>
+                    <td id="l28"></td>
+                    <td id="l29"></td>
+                    <td id="l30"></td>
+                  </tr>
+                  <tr>
+                    <td id="l31"></td>
+                    <td id="l32"></td>
+                    <td id="l33"></td>
+                    <td id="l34"></td>
+                    <td id="l35"></td>
+                    <td id="l36"></td>
+                    <td id="l37"></td>
+                    <td id="l38"></td>
+                    <td id="l39"></td>
+                    <td id="l40"></td>
+                  </tr>
+                  <tr>
+                    <td id="l41"></td>
+                    <td id="l42"></td>
+                    <td id="l43"></td>
+                    <td id="l44"></td>
+                    <td id="l45"></td>
+                    <td id="l46"></td>
+                    <td id="l47"></td>
+                    <td id="l48"></td>
+                    <td id="l49"></td>
+                    <td id="l50"></td>
+                  </tr>
+                  <tr>
+                    <td id="l51"></td>
+                    <td id="l52"></td>
+                    <td id="l53"></td>
+                    <td id="l54"></td>
+                    <td id="l55"></td>
+                    <td id="l56"></td>
+                    <td id="l57"></td>
+                    <td id="l58"></td>
+                    <td id="l59"></td>
+                    <td id="l60"></td>
+                  </tr>
+                  <tr>
+                    <td id="l61"></td>
+                    <td id="l62"></td>
+                    <td id="l63"></td>
+                    <td id="l64"></td>
+                    <td id="l65"></td>
+                    <td id="l66"></td>
+                    <td id="l67"></td>
+                    <td id="l68"></td>
+                    <td id="l69"></td>
+                    <td id="l70"></td>
+                  </tr>
+                  <tr>
+                    <td id="l71"></td>
+                    <td id="l72"></td>
+                    <td id="l73"></td>
+                    <td id="l74"></td>
+                    <td id="l75"></td>
+                    <td id="l76"></td>
+                    <td id="l77"></td>
+                    <td id="l78"></td>
+                    <td id="l79"></td>
+                    <td id="l80"></td>
+                  </tr>
+                  <tr>
+                    <td id="l81"></td>
+                    <td id="l82"></td>
+                    <td id="l83"></td>
+                    <td id="l84"></td>
+                    <td id="l85"></td>
+                    <td id="l86"></td>
+                    <td id="l87"></td>
+                    <td id="l88"></td>
+                    <td id="l89"></td>
+                    <td id="l90"></td>
+                  </tr>
+                  <tr>
+                    <td id="l91"></td>
+                    <td id="l92"></td>
+                    <td id="l93"></td>
+                    <td id="l94"></td>
+                    <td id="l95"></td>
+                    <td id="l96"></td>
+                    <td id="l97"></td>
+                    <td id="l98"></td>
+                    <td id="l99"></td>
+                    <td id="l100"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="gamestats gamestats_left">
+              <div class="gamestats__item">
+                <div class="ship_img battleship"></div>
+                <div class="ship_name">(4x cage):</div>
+                <div class="ship_val">1</div>
+              </div>
+              <div class="gamestats__item">
+                <div class="ship_img cruiser"></div>
+                <div class="ship_name">(3x cage):</div>
+                <div class="ship_val">2</div>
+              </div>
+              <div class="gamestats__item">
+                <div class="ship_img submarine"></div>
+                <div class="ship_name">(2x cage):</div>
+                <div class="ship_val">3</div>
+              </div>
+              <div class="gamestats__item">
+                <div class="ship_img destroyer"></div>
+                <div class="ship_name">(1x cage):</div>
+                <div class="ship_val">4</div>
+              </div>
+            </div>
+          </div>
+          <div class="middle_info">
+            <div class="announcement">
+              <div class="ann_img"></div>
+              <div class="ann_content">
+                <button type="button" class="btn btn-primary" id="btn_start">Start Game</button>
+              </div>
+            </div>
+          </div>
+          <div class="right_player">
+            <div class="gamefield second_player">
+              <table id="ai_table" class="gametable" border="2">
+                <tbody>
+                  <tr>
+                    <td id="l1"></td>
+                    <td id="l2"></td>
+                    <td id="l3"></td>
+                    <td id="l4"></td>
+                    <td id="l5"></td>
+                    <td id="l6"></td>
+                    <td id="l7"></td>
+                    <td id="l8"></td>
+                    <td id="l9"></td>
+                    <td id="l10"></td>
+                  </tr>
+                  <tr>
+                    <td id="l11"></td>
+                    <td id="l12"></td>
+                    <td id="l13"></td>
+                    <td id="l14"></td>
+                    <td id="l15"></td>
+                    <td id="l16"></td>
+                    <td id="l17"></td>
+                    <td id="l18"></td>
+                    <td id="l19"></td>
+                    <td id="l20"></td>
+                  </tr>
+                  <tr>
+                    <td id="l21"></td>
+                    <td id="l22"></td>
+                    <td id="l23"></td>
+                    <td id="l24"></td>
+                    <td id="l25"></td>
+                    <td id="l26"></td>
+                    <td id="l27"></td>
+                    <td id="l28"></td>
+                    <td id="l29"></td>
+                    <td id="l30"></td>
+                  </tr>
+                  <tr>
+                    <td id="l31"></td>
+                    <td id="l32"></td>
+                    <td id="l33"></td>
+                    <td id="l34"></td>
+                    <td id="l35"></td>
+                    <td id="l36"></td>
+                    <td id="l37"></td>
+                    <td id="l38"></td>
+                    <td id="l39"></td>
+                    <td id="l40"></td>
+                  </tr>
+                  <tr>
+                    <td id="l41"></td>
+                    <td id="l42"></td>
+                    <td id="l43"></td>
+                    <td id="l44"></td>
+                    <td id="l45"></td>
+                    <td id="l46"></td>
+                    <td id="l47"></td>
+                    <td id="l48"></td>
+                    <td id="l49"></td>
+                    <td id="l50"></td>
+                  </tr>
+                  <tr>
+                    <td id="l51"></td>
+                    <td id="l52"></td>
+                    <td id="l53"></td>
+                    <td id="l54"></td>
+                    <td id="l55"></td>
+                    <td id="l56"></td>
+                    <td id="l57"></td>
+                    <td id="l58"></td>
+                    <td id="l59"></td>
+                    <td id="l60"></td>
+                  </tr>
+                  <tr>
+                    <td id="l61"></td>
+                    <td id="l62"></td>
+                    <td id="l63"></td>
+                    <td id="l64"></td>
+                    <td id="l65"></td>
+                    <td id="l66"></td>
+                    <td id="l67"></td>
+                    <td id="l68"></td>
+                    <td id="l69"></td>
+                    <td id="l70"></td>
+                  </tr>
+                  <tr>
+                    <td id="l71"></td>
+                    <td id="l72"></td>
+                    <td id="l73"></td>
+                    <td id="l74"></td>
+                    <td id="l75"></td>
+                    <td id="l76"></td>
+                    <td id="l77"></td>
+                    <td id="l78"></td>
+                    <td id="l79"></td>
+                    <td id="l80"></td>
+                  </tr>
+                  <tr>
+                    <td id="l81"></td>
+                    <td id="l82"></td>
+                    <td id="l83"></td>
+                    <td id="l84"></td>
+                    <td id="l85"></td>
+                    <td id="l86"></td>
+                    <td id="l87"></td>
+                    <td id="l88"></td>
+                    <td id="l89"></td>
+                    <td id="l90"></td>
+                  </tr>
+                  <tr>
+                    <td id="l91"></td>
+                    <td id="l92"></td>
+                    <td id="l93"></td>
+                    <td id="l94"></td>
+                    <td id="l95"></td>
+                    <td id="l96"></td>
+                    <td id="l97"></td>
+                    <td id="l98"></td>
+                    <td id="l99"></td>
+                    <td id="l100"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="gamestats gamestats_right">
+              <div class="gamestats__item">
+                <div class="ship_img battleship"></div>
+                <div class="ship_name">(4x cage):</div>
+                <div class="ship_val">1</div>
+              </div>
+              <div class="gamestats__item">
+                <div class="ship_img cruiser"></div>
+                <div class="ship_name">(3x cage):</div>
+                <div class="ship_val">2</div>
+              </div>
+              <div class="gamestats__item">
+                <div class="ship_img submarine"></div>
+                <div class="ship_name">(2x cage):</div>
+                <div class="ship_val">3</div>
+              </div>
+              <div class="gamestats__item">
+                <div class="ship_img destroyer"></div>
+                <div class="ship_name">(1x cage):</div>
+                <div class="ship_val">4</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/scripts/index.js" type="module"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

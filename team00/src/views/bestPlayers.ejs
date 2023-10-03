@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best players</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" href="/images/ship4.png" type="image/png" />
+    <link rel="stylesheet" href="/views/styles/styleBestPlayers.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Caveat&family=Mooli&display=swap");
+    </style>
+  </head>
+  <body>
+    <header><%- include('modules/navbar.ejs', { async: true }) %></header>
+    <h1>Best players</h1>
+    <table>
+      <tr>
+        <th>Player Name</th>
+        <th>Total number of games played</th>
+        <th>Number of wins</th>
+        <th>Total number of defeats</th>
+        <th>Percentage of wins</th>
+      </tr>
+      <% updatedBestPlayers.forEach(player => { %>
+      <tr>
+        <td><%= player.username %></td>
+        <td><%= player.counter_game %></td>
+        <td><%= player.counter_win %></td>
+        <td><%= player.counter_loss %></td>
+        <td><%= player.percentage_of_wins %>%</td>
+      </tr>
+      <% }); %>
+    </table>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

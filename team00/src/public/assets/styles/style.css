@@ -1,0 +1,256 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.seabattle_game {
+  border: 1px solid gray;
+  display: flex;
+}
+
+.seabettle_gamezone {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 2.5rem auto;
+  width: 70vw;
+}
+
+.seabattle_sidebar {
+  border: 1px solid gray;
+  display: flex;
+  align-items: center;
+}
+
+ul {
+  margin: 0;
+  padding-left: 0 !important;
+}
+
+.menu_list {
+  display: flex;
+  display: block;
+  flex-direction: column;
+  margin: 15px;
+}
+
+.menu_item {
+  margin-bottom: 15px !important;
+}
+
+.item_img {
+  width: min(5vw, 50px);
+  height: min(5vw, 50px);
+  background-size: cover;
+  margin: 0 auto;
+}
+
+#img_1 {
+  background-image: url('../svg/fight.svg');
+}
+
+#img_2 {
+  background-image: url('../svg/personal.svg');
+}
+
+#img_3 {
+  background-image: url('../svg/best.svg');
+}
+
+#img_4 {
+  background-image: url('../svg/logout.svg');
+}
+
+.menu_item {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.menu_list li {
+  list-style-type: none;
+  margin-bottom: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table,
+th,
+td {
+  border: 2px solid #e8ebee !important;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.09);
+}
+
+.gamestats {
+  border: 3px solid #ddeedd;
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+.gamestats__item {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.ship_img {
+  width: min(2.5vw, 25px);
+  height: min(2.5vw, 25px);
+  background-size: cover;
+  margin: 0 auto;
+}
+
+.ship_name {
+  font-size: min(2vw, 14px);
+  line-height: min(2vw, 14px);
+  white-space: nowrap;
+}
+
+.ship_val {
+  font-size: min(2vw, 14px);
+  margin-left: 5px;
+}
+
+.battleship {
+  background-image: url('../svg/4.svg');
+}
+
+.cruiser {
+  background-image: url('../svg/3.svg');
+}
+
+.submarine {
+  background-image: url('../svg/2.svg');
+}
+
+.destroyer {
+  background-image: url('../svg/1.svg');
+}
+
+.first_player {
+  border: 3px solid #1f76be;
+}
+
+.second_player {
+  border: 3px solid #e20100;
+}
+
+.gametable {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.ann_img {
+  width: 50px;
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  margin: 0 auto;
+}
+
+.ann_content {
+  text-align: center;
+}
+
+.announcement {
+  margin: 3rem;
+}
+
+.active-ship {
+  background-color: yellow;
+  padding: 3px;
+}
+
+.hovered_cell {
+  background-color: yellow;
+  opacity: 0.5;
+}
+
+.hovered_cell:active {
+  background-color: #ddeedd;
+  opacity: 1;
+}
+
+.ship {
+  background-color: #ddeedd;
+}
+
+.hovered_cell.ship {
+  background-color: #ddeedd;
+  opacity: 1;
+}
+
+.pointer_cursor {
+  cursor: pointer;
+}
+
+.pointer_cursor:hover:not(.active-ship) {
+  border-bottom: 1px solid #1f76be;
+}
+
+/* SHAKING ANIMATION START*/
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+
+.error {
+  animation: shake 1s ease-in-out 1;
+  box-shadow: 0 0 10px red;
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+/* SHAKING ANIMATION END */
+
+/* BATTLE PHASE */
+
+.hovered_cell_battle:not(.cell_damaged):not(.cell_miss) {
+  background-color: pink;
+  opacity: 0.5;
+}
+
+.hovered_cell_battle:active:not(.cell_damaged):not(.cell_miss) {
+  opacity: 1;
+  background-color: #e20100;
+}
+
+.cell_miss {
+  background-color: #cfcfcf;
+}
+
+.cell_damaged {
+  background-color: #fbd3d1;
+}
+
+.cell_killed {
+  background-image: url('../svg/cross.svg');
+  background-repeat: none;
+  background-size: contain;
+}

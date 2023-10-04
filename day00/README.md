@@ -20,7 +20,6 @@ removeReps([1, 1, 2, 4, 5, 6, 6, 8, 9, 11]); // Вывод [1,2,4,5,6,8,9,11]
 
 ## **Task 2.**
 
-<br>
 Write a function that takes two strings as input - a message (a regular text string) and a character to remove from that message.
 **Be sure to use the methods and loops you have learned.**
 
@@ -32,7 +31,6 @@ Write a function that takes two strings as input - a message (a regular text str
 
 ## **Task 3.**
 
-<br>
 Write a counter function that, with each call, returns a number 3 greater than the previous one. You cannot use variables declared with var.
 
 ```
@@ -125,8 +123,6 @@ This task has two levels of difficulty:
 `-` Words can be written from left to right and vice versa.
 
 You can find an example of a word search puzzle and the expected output by: [link](./src//chapter_4/wordSearch.js).
-
-<br>
 
 And finally, the last task for today. This one is optional! It will require the knowledge you've gained through studying the topics and completing previous tasks.
 

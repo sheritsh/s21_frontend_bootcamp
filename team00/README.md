@@ -2,35 +2,57 @@
 
 ## Sea Battle
 
+Today, you will need to write a game! It will be Battleship (Sea Battle).
 
-Сегодня вам нужно будет написать игру! Это будет Морской бой.
+In total, the application will have 5 pages:
 
+1.  [Login page](./misc/images/Signin_Page.png) (localhost:3000/signIn)
 
-  Всего в приложении будет 5 страниц :
+2.  [Registration page](./misc/images/Signup_Page.png) (localhost:3000/signUp)
 
+3.  On the main page (localhost:3000/) ([main page maket pregame](./misc/images/Main_Page.png)), there are game boards for players (you and the PC), as well as a start game button. When you click the start button, the ship placement phase begins. The ship placement mechanism is as follows: below the game board, there's a section listing the ships. After clicking on any ship, it is highlighted in the section. You click for the first time on a cell of the game board (this is the starting coordinate of the ship), and then you need to click on the last coordinate of the ship. A validation function is triggered. If everything is specified correctly, the ship is "placed" on the board. After all ships are placed, the game automatically starts ([game maket afteer game starts](./misc/images/Main_Page_startGame.png)). The opponent's ships are placed randomly. Then, the familiar process of the game begins: players take turns making moves and selecting a cell on the opponent's board to shoot. If a player hits a ship, it is displayed on the interface, and the right to make another move remains with the player who scored the hit. The game ends when all ships of one side are destroyed.
 
- 1. [Страница авторизации](./misc/images/Signin_Page.png)  (localhost:3000/signIn)
+Rules for ship placement:  
+ 1. There should be a minimum of one cell between the ships.  
+ 2. Ships can only be placed horizontally or vertically.
 
- 2. [Страница регистрации](./misc/images/Signup_Page.png) (localhost:3000/signUp)
+4.  [Top players' rating](./misc/images/BestPlayers_Page.png) (localhost:3000/bestPlayers). Only players who have played more than 10 times are displayed on this page.
+5.  [Your statistics page](./misc/images/MyState_Page.png) (localhost:3000/myStats).
 
- 3. На главной странице (localhost:3000/) ([макет страницы до старта](./misc/images/Main_Page.png)) расположены игровые поля игроков (вас и PC) а также кнопка начала игры. После нажатия на кнопку начинается расстановка кораблей. Механизм расстановки таков: под полем расположена секция с перечислением кораблей, после клика на любой корабль он подсвечивается в секции, вы кликаете первый раз на клетку игрового поля (это начальная координата корабля), после надо кликнуть на последнюю координату корабля. Запускается функция проверки, если все указано корректно, то корабль 'устанавливается' на поле. После расстановки всех кораблей автоматически начинается бой ([макет страницы после старта игры](./misc/images/Main_Page_startGame.png)). Корабли противника расстанавливаются автоматически (рандомно). Далее начинается знакомый всем процесс игры — игроки поочередно делают ход и выбирают клетку противника куда делается выстрел. Если игрок попал в корабль, то это отображается на интерфейсе и право хода остается за попавшим игроком. После уничтожения всех кораблей одной из сторон игра заканчивается.
+    - Important! If you close the application while a game is not finished, the game is automatically considered lost.
+    - The models for the database are at your discretion.
 
-  Правила для расстановки кораблей:
-     1. Между кораблями должна быть минимум одна клетка.
-     2. Корабли могут располагаться только горизонтально или вертикально.
+## Solution
 
+[src files](src/)
 
- 4. [Рейтинг лучших игроков](./misc/images/BestPlayers_Page.png) (localhost:3000/bestPlayers). На данной странице отображаются только те игроки, кто сыграл более 10 раз.
- 5. [Страница с вашей статистикой](./misc/images/MyState_Page.png) (localhost:3000/myStats).
+### Team composition
 
+| <center> Member </center>                                                                                                                                                            | Area of ​​responsibility                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| [<img src="misc/images/sheritsh.png" alt="sheritsh_avatar" width="200" height="200">](https://github.com/sheritsh)<br /> <center>[// sheritsh](https://github.com/sheritsh)</center> | SeaBattle and game logic.                                                |
+| [<img src="misc/images/brenettg.jpg" alt="brenettg_avatar" width="200" height="200">](https://github.com/geratw)<br /> <center>[// brenettg](https://github.com/geratw)</center>     | Authentication, session management, API for top players, and statistics. |
 
-     - Важно! Если вы закрыли приложение пока игра не закончена, то игра автоматически считается проигранной.
-     - Модели для БД остаются на ваше усмотрение.
-     - В макетах указаны схематичные расположения блоков разметки, в данном проекте вы можете проявить фантазию и попробовать реализовать свой стиль!
-     - Вы можете использовать Canvas для того, чтобы рисовать игровые поля. [Тут можно почитать подробнее](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial).
-     - Мы можете использовать любые дополнительные библиотеки для работы с игровыми полями и логикой игры.
-     - Вы можете использовать любые css-бибилиотеки (MUI, AntDesign, Bootstrap etc).
+### Commands
 
+To clear the database, perform a migration, and populate it with seeds, execute the following command:
 
->Пожалуйста, оставьте обратную связь по проекту в [форме обратной связи.](https://forms.gle/yLijCZn68rqw9Y6g7)
+```
+npm run dbr
+```
 
+To start server on http://localhost:3000/:
+
+```
+npm run start
+```
+
+## Screenshots
+
+Game Screencast
+
+![game screencast](misc/images/game_record.gif)
+
+Game Page
+
+![game screenshot](misc/images/seabattle.png)

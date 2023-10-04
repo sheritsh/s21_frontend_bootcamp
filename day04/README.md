@@ -1,75 +1,35 @@
-#  Day 04 - Frontend boot camp
+# Day 04 - Frontend boot camp
 
-## Contents
+Creating a server using the Express framework, connecting a database to the server, implementing a REST API, using Postman for testing, using the ORM Sequelize, Node.js, and implementing CRUD (Create, Read, Update, Delete) operations.
 
-1. [Chapter I](#chapter-i) \
-   1.1. [Express](#express) 
-2. [Chapter II](#chapter-ii) \
-   2.1 [Работа с БД через node.js](#работа-с-бд-через-nodejs) \
-   2.2 [Rest API](#rest-api) \
-   2.3 [Работа с Postman](#работа-с-Postman) 
+## **Task 1**
 
+Imagine a client has come to you with a request to develop an internal application for restaurant employees. In the first stage, you need to create a database for the future application. [The client has provided a technical specification ](./src/chapter_2/Exercise_1.md). The task instructions and recommendations are provided in the technical specification.
 
+## **Task 2**
 
-## Chapter I
-В этой главе мы рассмотрим создание сервера с помощью фреймворка Express. Подключим базу данных к серверу, рассмотрим архитектурный подход REST API и научимся работать с Postman. 
+Now you need to create a service by connecting your database from the previous task to a small Express server that you will write.
 
-**Важно!**
-Если вы знакомы с другим фреймворком, на котором вы можете написать небольшой сервер, или вы знаете язык, на котором можете это реализовать, и вы не видите необходимости в изучении фреймворка express, вы можете выполнять задания текущего и последующих дней с помощью той технологии, которой владеете. Однако в таком случае необходимо в папке задания написать инструкцию по запуску сервера в файле instructions.md, чтобы у проверяющих не возникло вопросов в ходе проверки ваших заданий.
+The following endpoints should be handled: \
+`-` GET /menu — the client can view the menu and everything it contains. \
+`-` POST /orders — create an order. \
+`-` PUT /orders/id — edit an order. \
+`-` DELETE /orders/id — close an order (for closure, we recommend not deleting the record from the table but simply changing one of the fields from true to false). \
+`-` GET /orders — get all current orders from the restaurant. \
+`-` POST /waiters — the ability to add a new employee.
 
-### Express
-Express — это фреймворк для Node.js, который реализовывает слой функций, необходимых для создания эффективных приложений и API.
-[Express предоставляет следующие механизмы](./materials/Express.md).
+## Solution
 
-## Chapter II
+[src files](src/chapter_2/)
 
-### Работа с БД через node.js
+To clear the database, perform a migration, and populate it with seeds, execute the following command:
 
-Для подключения базы данных к серверу и работы с ней мы будем использовать Sequelize. \
-Sequelize — это популярный ORM, созданный для Node.js. \
-Взаимодействие с базами данных - обычная задача для серверных приложений. Обычно это выполнялось с помощью необработанных SQL-запросов, которые может быть сложно построить, особенно для тех, кто плохо знаком с SQL или базами данных в целом.
-В конце концов, появились объектно-реляционные сопоставители (ORM), призванные упростить управление базами данных. Они автоматически отображают объекты (сущности) из нашего кода в реляционной базе данных, как следует из названия.
+```
+npm run dbr
+```
 
-Пример связки [sequelize + express](https://github.com/sequelize/express-example/tree/master/express-main-example/express).
+To start server on http://localhost:3000/:
 
-### Rest API
-
-REST API — является самым популярным архитектурным решением взаимодействия веб-приложения с сервером. Его также называют RESTful.
-
-Термин состоит из двух аббревиатур, которые расшифровываются следующим образом. API (Application Programming Interface) — это код, который позволяет двум приложениям обмениваться данными с сервера. На русском языке его принято называть программным интерфейсом приложения. REST (Representational State Transfer) — это способ создания API с помощью протокола HTTP. На русском его называют «передачей репрезентативного состояния» или «передачей „самоописываемого“ состояния».
-
-REST API можно применить везде, где веб-приложению необходимо предоставить данные с сервера. Например при отображении профиля в социальных сетях. На данный момент это самый распространенный способ организации API. Он вытеснил ранее популярные способы SOAP и WSDL.
-
-Сам по себе RESTful не является стандартом или протоколом. Разработчики руководствуются принципами REST API для создания эффективной работы с серверов для своих сайтов и приложений.
-
-**Принципы REST API**
-
-У RESTful есть [7 принципов написания кода интерфейсов](./materials/Restful.md).
-
-**Упражнение 1.** \
-Представьте, что к вам пришел заказчик с просьбой разработать приложение для внутреннего пользования сотрудниками ресторана. На первом этапе вам нужно создать БД под будущее приложение. [Заказчик приложил ТЗ](./src/chapter_2/Exercise_1.md). Рекомендации к выполнению задания, представлены в ТЗ.
-### Работа с Postman
-
-“Разработка API сложна, Postman делает её лёгкой” © Postdot Technologies, Inc
-
-Основное предназначение приложения — создание коллекций с запросами к вашему API. Любой разработчик или тестировщик, открыв коллекцию, сможет с лёгкостью разобраться в работе вашего сервиса. Ко всему прочему Postman позволяет проектировать дизайн API и создавать на его основе Mock-сервер. Вашим разработчикам больше нет необходимости тратить время на создание "заглушек". Реализацию сервера и клиента можно запустить одновременно.
-
-Пример запроса в Postman:
-
-<img width="721" alt="EventLoop" src="https://user-images.githubusercontent.com/48245816/170867197-d13e35ed-a54d-4735-b5e7-fbc74a9cae88.jpg">
-
-
-[Скачать Postman](https://www.postman.com)
-
-**Упражнение 2.** \
-Теперь вам надо создать сервис, связав вашу БД из прошлого задания и небольшой сервер на Express, который вы напишете. 
-
-Должны обрабатываться следующие endpoints: \
-`-` GET /menu — клиент может посмотреть меню и все, что в него входит. \
-`-` POST /orders — создать заказ. \
-`-` PUT /orders/id — изменить заказ. \
-`-` DELETE /orders/id — закрыть заказ (для закрытия советуем не удалять запись из таблицы, а просто изменять одно из полей с true на false). \
-`-` GET /orders — получить все текущие заказы из ресторана. \
-`-` POST /waiters —  возможность добавить нового сотрудника.
-
->Пожалуйста, оставьте обратную связь по проекту в [форме обратной связи.](https://forms.gle/a18zQDu7J6Yt7Jw19)
+```
+npm run start
+```

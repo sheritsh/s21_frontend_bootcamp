@@ -7,8 +7,6 @@ Object-Oriented Programming (OOP), Classes, Getters/Setters, Asynchrony, Event L
 You need to describe the `Employee` class. \
 ![image](https://user-images.githubusercontent.com/48245816/170902240-ab540276-e2b6-450f-ac32-d11ced7580ea.png)
 
-[Заготовки для задания](./src/chapter_1/classes.js).
-
 ## **Task2.**
 
 Continuing from the previous task, you need to create [5 new classes](./src/chapter_1/Hard_classes.md).

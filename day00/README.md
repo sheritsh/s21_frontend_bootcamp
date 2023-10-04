@@ -18,6 +18,8 @@ removeReps([1, 1, 2, 4, 5, 6, 6, 8, 9, 11]); // Вывод [1,2,4,5,6,8,9,11]
 | removeReps([1,1,1,1])                       |        [1]         |
 | removeReps([1,2,3,4,5,6])                   |   [1,2,3,4,5,6]    |
 
+[Solution](src/chapter_3/removeReps.js)
+
 ## **Task 2.**
 
 Write a function that takes two strings as input - a message (a regular text string) and a character to remove from that message.
@@ -28,6 +30,8 @@ Write a function that takes two strings as input - a message (a regular text str
 | removeString("Большое и интересное сообщение", "о") | Бльше и интересне сбщение |
 | removeString("Hello world!", "z")                   |       Hello world!        |
 | removeString("А роза азора", "А")                   |        роза азора         |
+
+[Solution](src/chapter_3/removeSymbol.js)
 
 ## **Task 3.**
 
@@ -43,6 +47,8 @@ counter(); // Функция вернет 9
 
 ```
 
+[Solution](src/chapter_4/counter.js)
+
 ## **Task 4.**
 
 You need to describe a series of functions that can take an optional callback as an argument. If such an argument is provided, pass the number n to this callback; otherwise, simply return the number n.
@@ -57,6 +63,8 @@ Additionally, you need to write four functions for basic arithmetic operations. 
 | five(mult(three()))            |   15   |
 | one(mult(three(plus(four())))) |   7    |
 
+[Solution](src/chapter_4/calculator.js)
+
 ## **Task 5.**
 
 Write a function that takes the coordinates of a number in Pascal's Triangle and returns the value at those coordinates. Before completing the task, it is necessary to study Pascal's Triangle more thoroughly.
@@ -70,6 +78,8 @@ Recursion might be helpful here.
 | pascalsTriangle(5,4) |   5    |
 | pascalsTriangle(1,1) |   1    |
 
+[Solution](src/chapter_4/pascalsTriangle.js)
+
 ## **Task 6.**
 
 Write a function that takes an index of a number from the Fibonacci sequence and returns its value.
@@ -82,6 +92,8 @@ Assume that the Fibonacci sequence starts with an index of 0 and is represented 
 | fibo(1)  |   1    |
 | fibo(8)  |   34   |
 | fibo(21) | 17711  |
+
+[Solution](src/chapter_4/fibonacci.js)
 
 ## **Task 7.**
 
@@ -111,6 +123,8 @@ atm(100050); // Limit exceeded
 | atm(2570)   |                      Incorrect value                      |
 | atm(100050) |                      limit exceeded                       |
 
+[Solution](src/chapter_4/atm.js)
+
 ## **Task 8.**
 
 In this task, you will need to write a search algorithm that will determine whether it is possible to find the input word in a word search puzzle, which is also provided as input to the function.  
@@ -125,6 +139,8 @@ This task has two levels of difficulty:
 You can find an example of a word search puzzle and the expected output by: [link](./src//chapter_4/wordSearch.js).
 
 And finally, the last task for today. This one is optional! It will require the knowledge you've gained through studying the topics and completing previous tasks.
+
+[Solution](src/chapter_4/wordSearch.js)
 
 ## **Task 9.**
 
@@ -165,3 +181,5 @@ Be sure to implement the `prettyBoard` method, which takes a board represented a
 `-` Five of them require slightly more advanced logic.
 
 `-` Five require your solver to have the ability to guess and backtrack if it reaches a dead end.
+
+[Solution](src/chapter_4/sudoku.js)

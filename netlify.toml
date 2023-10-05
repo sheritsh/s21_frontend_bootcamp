@@ -1,4 +1,0 @@
-[build]
-  base = "day06/src"
-  publish = "day06/build"
-  command = "npm run build"

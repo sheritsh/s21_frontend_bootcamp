@@ -20,4 +20,4 @@ The list of values in SomeList is initially empty until the user adds some resul
 
 [src files](src/)
 
-**Deploy**:
+**Deploy**: https://sheritsh.github.io/s21_frontend_bootcamp/

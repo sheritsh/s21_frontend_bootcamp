@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/s21_frontend_bootcamp/day06/src/build/static/css/main.aa812602.css",
-    "main.js": "/s21_frontend_bootcamp/day06/src/build/static/js/main.54a156be.js",
-    "static/js/787.0dffce48.chunk.js": "/s21_frontend_bootcamp/day06/src/build/static/js/787.0dffce48.chunk.js",
-    "index.html": "/s21_frontend_bootcamp/day06/src/build/index.html",
-    "main.aa812602.css.map": "/s21_frontend_bootcamp/day06/src/build/static/css/main.aa812602.css.map",
-    "main.54a156be.js.map": "/s21_frontend_bootcamp/day06/src/build/static/js/main.54a156be.js.map",
-    "787.0dffce48.chunk.js.map": "/s21_frontend_bootcamp/day06/src/build/static/js/787.0dffce48.chunk.js.map"
+    "main.css": "/s21_frontend_bootcamp/static/css/main.aa812602.css",
+    "main.js": "/s21_frontend_bootcamp/static/js/main.b8a81bb8.js",
+    "static/js/787.0dffce48.chunk.js": "/s21_frontend_bootcamp/static/js/787.0dffce48.chunk.js",
+    "index.html": "/s21_frontend_bootcamp/index.html",
+    "main.aa812602.css.map": "/s21_frontend_bootcamp/static/css/main.aa812602.css.map",
+    "main.b8a81bb8.js.map": "/s21_frontend_bootcamp/static/js/main.b8a81bb8.js.map",
+    "787.0dffce48.chunk.js.map": "/s21_frontend_bootcamp/static/js/787.0dffce48.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.aa812602.css",
-    "static/js/main.54a156be.js"
+    "static/js/main.b8a81bb8.js"
   ]
 }
